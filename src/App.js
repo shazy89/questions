@@ -1,6 +1,6 @@
 import data from './api/local/questions.json';
 import React, { useState, useEffect, useCallback } from 'react';
-
+import { QuestionsDashboard } from './pages/questions-dashboard';
 function App() {
   const [questionInfo, setQuestionInfo] = useState('');
 
@@ -30,7 +30,11 @@ function App() {
   }, [getData]);
 
   console.log(questionInfo);
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <QuestionsDashboard />
+    </div>
+  );
 }
 
 export default App;

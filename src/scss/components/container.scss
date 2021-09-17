@@ -1,6 +1,9 @@
-.App {
-    &-logo {
-   width: 5rem; 
-   height: 5rem;      
+.app {
+    &-container {
+ padding: 3rem;  
     } 
+}
+.App {
+    width: 100vw;
+    height: 100vh;
 }
