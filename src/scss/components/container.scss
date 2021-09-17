@@ -1,18 +1,17 @@
-
 .App {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
 }
 
 .app {
-    &_container {
-        position: absolute;
-     padding: 3rem;  
+  &_container {
+    position: absolute;
+    padding: 3rem;
     text-align: center;
     width: 50vw;
     height: auto;
-    border: 3px solid black;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,12 +19,29 @@
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
+    flex-flow: column;
+  }
 
-    } 
-
-    &_question {
-  
-        animation: move 3s ease-in-out;
-       
+  &_question {
+    animation: move 3s ease-in-out;
+  }
+  &_options {
+    color: #f4d03f;
+    font-size: 0;
+    line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
+    opacity: 1;
+    span {
+      font-size: 3rem;
+      display: inline-block;
+      animation: leftToRight 2s ease-in-out;
+      width: 50%;
     }
+
+  }
+}
+
+.show {
+    opacity: 1;
 }

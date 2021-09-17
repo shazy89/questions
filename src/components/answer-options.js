@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Options = () => {
-  return <span></span>;
+export const Option = ({ option }) => {
+  return <span className="app_option">{option}</span>;
 };
