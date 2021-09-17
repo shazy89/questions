@@ -1,0 +1,14 @@
+@keyframes move {
+    0% {
+        transform: translate(-30%, 0);
+        opacity: .5;
+      }
+      50% {
+        text-shadow: 0 25px 50px rgba(0, 0, 0, 0.75);
+        opacity: .8;
+      }
+      100% {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+}

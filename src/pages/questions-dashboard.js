@@ -1,9 +1,10 @@
 import React from 'react';
 
-export const QuestionsDashboard = () => {
+export const QuestionsDashboard = ({ questionInfo: { options, question } }) => {
   return (
     <div className="app_container">
-      <h1>HEY THERE HELLO WORLD JS</h1>
+      <h1 className="app_question">{question}</h1>
+      <div className="app_options"></div>
     </div>
   );
 };

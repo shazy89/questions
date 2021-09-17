@@ -29,10 +29,9 @@ function App() {
     getData();
   }, [getData]);
 
-  console.log(questionInfo);
   return (
     <div className="App">
-      <QuestionsDashboard />
+      <QuestionsDashboard questionInfo={questionInfo} />
     </div>
   );
 }
