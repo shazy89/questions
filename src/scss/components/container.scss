@@ -31,18 +31,19 @@
     line-height: 1.5;
     display: flex;
     flex-wrap: wrap;
-    opacity: 1;
+    cursor: pointer;
     text-align: start;
     span {
       font-size: 3rem;
       display: inline-block;
       animation: leftToRight 2s ease-in-out;
       width: 50%;
+      opacity: 0;
     }
 
   }
 }
 
 .show {
-    opacity: 1;
+    opacity: 1 !important;
 }
