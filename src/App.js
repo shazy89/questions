@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import data from './api/local/questions.json';
+import React, { useState, useEffect, useCallback } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [questionInfo, setQuestionInfo] = useState('');
+
+  const questionsRequest = (select = 'me') => {
+    return new Promise((resolve, reject) => {
+      const mock = data;
+
+      if (!mock) {
+        reject('not found');
+      }
+      resolve(mock);
+    });
+  };
+
+  const getData = useCallback(() => {
+    questionsRequest()
+      .then((results) => {
+        setQuestionInfo(results.questionUno);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    getData();
+  }, [getData]);
+
+  console.log(questionInfo);
+  return <div className="App"></div>;
 }
 
 export default App;
