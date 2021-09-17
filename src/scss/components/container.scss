@@ -11,7 +11,7 @@
     text-align: center;
     width: 50vw;
     height: auto;
-
+    text-align: start;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,6 +32,7 @@
     display: flex;
     flex-wrap: wrap;
     opacity: 1;
+    text-align: start;
     span {
       font-size: 3rem;
       display: inline-block;
