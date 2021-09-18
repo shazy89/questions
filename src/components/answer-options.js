@@ -1,19 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { answerTypes } from '../utils/questionsStyle';
 
-export const Option = ({
-  option,
-  index,
-  setUserAnswer,
-
-  correctAnswer,
-}) => {
+export const Option = ({ option, index, setUserAnswer, correctAnswer }) => {
   const [show, setShow] = useState(false);
   const inputEl = useRef(null);
 
   const onButtonClick = () => {
     setUserAnswer(inputEl.current.innerText);
-
     if (inputEl.current.innerText === correctAnswer) {
       inputEl.current.className = `app_option ${show ? 'show' : ''} ${
         answerTypes.correct
@@ -24,6 +17,7 @@ export const Option = ({
       }`;
     }
   };
+
   return (
     <span
       ref={inputEl}
@@ -33,4 +27,3 @@ export const Option = ({
     >{`${option}`}</span>
   );
 };
-// ${   answer === userAnswer ? answerTypes.correct : answerTypes.incorrect  }
