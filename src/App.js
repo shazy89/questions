@@ -11,7 +11,7 @@ function App({ setQuestions, loading, questions }) {
     setQuestions();
   }, [setQuestions]);
   useEffect(() => {
-    setQuestionInfo(questions.questionUno);
+    setQuestionInfo(questions[0]);
   }, [questions]);
 
   return (

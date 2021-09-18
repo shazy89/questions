@@ -1,4 +1,4 @@
-import { GET_QUESTIONS } from '../actions/types';
+import { GET_QUESTIONS, UPDATE_ANSWER } from '../actions/types';
 
 const initialState = {
   questions: [],
@@ -11,17 +11,17 @@ function questions(state = initialState, action) {
     case GET_QUESTIONS:
       return {
         ...state,
-        questions: payload,
+        questions: [payload.questionUno],
         loading: false,
       };
-    //   case EDIT_EVENTS:
-    //     return {
-    //       ...state,
-    //       events: state.events.map((obj) =>
-    //         obj._id === payload._id ? payload : obj
-    //       ),
-    //       loading: false
-    //     };
+    case UPDATE_ANSWER:
+      const updateData = state.questions[0];
+
+      updateData.correct = payload;
+      return {
+        ...state,
+        questions: [updateData],
+      };
     //   case CLEAR_DATA:
     //     return { ...state, events: [], loading: true };
 
