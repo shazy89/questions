@@ -1,39 +1,34 @@
-import data from './api/local/questions.json';
 import React, { useState, useEffect, useCallback } from 'react';
+import { connect } from 'react-redux';
+import data from './api/local/questions.json';
 import { QuestionsDashboard } from './pages/questions-dashboard';
-function App() {
-  const [questionInfo, setQuestionInfo] = useState('');
-
-  const questionsRequest = (select = 'me') => {
-    return new Promise((resolve, reject) => {
-      const mock = data;
-
-      if (!mock) {
-        reject('not found');
-      }
-      resolve(mock);
-    });
-  };
-
-  const getData = useCallback(() => {
-    questionsRequest()
-      .then((results) => {
-        setQuestionInfo(results.questionUno);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+import { setQuestions } from 'redux/actions/questions-fetch';
+import { Loading } from 'layout/loading';
+function App({ setQuestions, loading, questions }) {
+  const [questionInfo, setQuestionInfo] = useState(null);
 
   useEffect(() => {
-    getData();
-  }, [getData]);
+    setQuestions();
+  }, [setQuestions]);
+  useEffect(() => {
+    setQuestionInfo(questions.questionUno);
+  }, [questions]);
 
   return (
-    <div className="App">
-      <QuestionsDashboard questionInfo={questionInfo} />
-    </div>
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        questionInfo && <QuestionsDashboard questionInfo={questionInfo} />
+      )}
+    </>
   );
 }
 
-export default App;
+const mapStateProps = (state) => {
+  return {
+    loading: state.questions.loading,
+    questions: state.questions.questions,
+  };
+};
+export default connect(mapStateProps, { setQuestions })(App);

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { answerTypes } from '../../utils/questionsStyle';
+import { answerTypes } from '../../infrastructure/questionsStyle';
 
 export const Option = ({
   option,

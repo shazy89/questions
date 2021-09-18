@@ -4,18 +4,16 @@ export const QuestionsDashboard = ({
   questionInfo: { options, question, answer },
 }) => {
   const [userAnswer, setUserAnswer] = useState(null);
-  const displayOptions =
-    options &&
-    options.map((option, index) => (
-      <Option
-        key={index}
-        option={option}
-        index={index + 1}
-        setUserAnswer={setUserAnswer}
-        correctAnswer={answer}
-        userAnswer={userAnswer}
-      />
-    ));
+  const displayOptions = options.map((option, index) => (
+    <Option
+      key={index}
+      option={option}
+      index={index + 1}
+      setUserAnswer={setUserAnswer}
+      correctAnswer={answer}
+      userAnswer={userAnswer}
+    />
+  ));
 
   return (
     <div className="app_container">
