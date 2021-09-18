@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
-export const Option = ({ option, index }) => {
+export const Option = ({ option, index, setUserAnswer }) => {
   const [show, setShow] = useState(false);
-  console.log(show);
+  const inputEl = useRef(null);
+
+  const onButtonClick = () => {
+    setUserAnswer(inputEl.current.innerText);
+  };
   return (
     <span
-      onClick={() => console.log('click')}
+      ref={inputEl}
+      onClick={onButtonClick}
       onAnimationEnd={() => setShow(true)}
       className={`app_option ${show ? 'show' : ''}`}
-    >{`${index}) ${option}`}</span>
+    >{`${option}`}</span>
   );
 };

@@ -1,0 +1,10 @@
+.question {
+   &_correct {
+       background-color: rgb(17, 204, 17);
+       color: white;
+   } 
+   &_incorrect {
+    background-color: rgb(204, 70, 17);
+    color: white;
+   } 
+}

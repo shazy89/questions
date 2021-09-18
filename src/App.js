@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     getData();
   }, [getData]);
-
+  console.log(questionInfo);
   return (
     <div className="App">
       <QuestionsDashboard questionInfo={questionInfo} />

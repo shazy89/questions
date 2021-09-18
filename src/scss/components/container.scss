@@ -33,12 +33,16 @@
     flex-wrap: wrap;
     cursor: pointer;
     text-align: start;
+    transition: all .2s;
     span {
       font-size: 3rem;
       display: inline-block;
       animation: leftToRight 2s ease-in-out;
       width: 50%;
       opacity: 0;
+      &:hover {
+        transform: translate(2px, 2px);
+      }
     }
 
   }
