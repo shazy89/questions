@@ -1,17 +1,25 @@
 import React from 'react';
-import { Button } from 'bootstrap';
-export const AnswerType = ({ info, link, correct }) => {
+import { connect } from 'react-redux';
+import { Button } from '@material-ui/core';
+
+const mapStateToProp = (state) => {
+  return {
+    correct: state.questions.questions[0].correct,
+  };
+};
+export const AnswerType = connect(mapStateToProp)(({ info, link, correct }) => {
+
   return (
-    <div>
+    <div className="after_answer">
       {correct ? (
-        <h1>Great job, you've just found the right answer</h1>
+        <h1>Great job, that's correct!</h1>
       ) : (
-        <h1>You got this</h1>
+        <h1>Incorrect</h1>
       )}
       <p>{info}</p>
-      <Button href={link} target="_blank">
+      <Button href={link} variant="contained" color="primary">
         For More
       </Button>
     </div>
   );
-};
+});

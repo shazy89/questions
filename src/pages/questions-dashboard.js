@@ -4,6 +4,7 @@ import { Option } from '../components/answers/answer-options';
 import { getUsersAnswer } from 'redux/actions/questions-fetch';
 import { checkAnswer } from 'helpers/helper-functions';
 import { AnswerType } from 'components/answers/answer-type';
+import { Timer } from '@material-ui/icons';
 //const mapStateProps = (state) => {
 //  return {
 //    loading: state.questions.loading,
@@ -13,12 +14,12 @@ import { AnswerType } from 'components/answers/answer-type';
 
 export const QuestionsDashboard = connect(null, { getUsersAnswer })(
   ({
-    questionInfo: { options, question, answer, correct },
+    questionInfo: { options, question, answer, correct, info, link },
     getUsersAnswer,
     loading,
   }) => {
     const [userAnswer, setUserAnswer] = useState(null);
-
+    const [show, setShow] = useState(false);
     const displayOptions = options.map((option, index) => (
       <Option
         key={index}
@@ -30,16 +31,27 @@ export const QuestionsDashboard = connect(null, { getUsersAnswer })(
       />
     ));
     useEffect(() => {
-      if (userAnswer) getUsersAnswer(checkAnswer(userAnswer, answer));
+      if (userAnswer) {
+        getUsersAnswer(checkAnswer(userAnswer, answer));
+        setTimeout(() => {
+          setShow(true);
+        }, 3000);
+      }
     }, [answer, getUsersAnswer, userAnswer]);
-
+    console.log(show);
     return (
       <div className="app_container">
-        <h1 className="app_question">{question && question}</h1>
+        {show ? (
+          <AnswerType info={info} target="_blank" link={link} />
+        ) : (
+          <>
+            <h1 className="app_question">{question && question}</h1>
 
-        <div className={`app_options ${userAnswer && 'disabled'}`}>
-          {displayOptions}
-        </div>
+            <div className={`app_options ${userAnswer && 'disabled'}`}>
+              {displayOptions}
+            </div>
+          </>
+        )}
       </div>
     );
   }

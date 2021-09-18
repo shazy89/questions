@@ -4,6 +4,7 @@ import data from './api/local/questions.json';
 import { QuestionsDashboard } from './pages/questions-dashboard';
 import { setQuestions } from 'redux/actions/questions-fetch';
 import { Loading } from 'layout/loading';
+
 function App({ setQuestions, loading, questions }) {
   const [questionInfo, setQuestionInfo] = useState(null);
 
