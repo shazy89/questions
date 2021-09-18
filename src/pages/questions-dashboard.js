@@ -35,7 +35,7 @@ export const QuestionsDashboard = connect(null, { getUsersAnswer })(
         getUsersAnswer(checkAnswer(userAnswer, answer));
         setTimeout(() => {
           setShow(true);
-        }, 3000);
+        }, 1400);
       }
     }, [answer, getUsersAnswer, userAnswer]);
     console.log(show);

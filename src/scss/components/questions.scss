@@ -1,13 +1,13 @@
 .question {
    &_correct {
-       background-color: rgb(17, 204, 17);
-       color: white;
+       background-color: $questions-correct;
+       color: $questions-white;
        border-radius: 20px;
        text-align: center;
    } 
    &_incorrect {
-    background-color: rgb(204, 70, 17);
-    color: white;
+    background-color: $questions-incorrect;
+    color: $questions-white;
     border-radius: 20px;
     text-align: center;
    } 
@@ -20,6 +20,24 @@
     opacity: .80 !important; 
 }
 
-.after_answer {
+.after {
+&_answer {
+text-align: center;
+animation: fadeIn 3s ease-in-out;
+}
+&_correct {
+    background-color: $questions-correct;
+    color: $questions-white;
+}
+&_incorrect {
+    background-color: $questions-incorrect;
+    color: $questions-white;
+}
+&_headers {
+    font-size: 3rem;
     
+}
+&_text {
+    font-size: 1.5rem;
+}
 }
