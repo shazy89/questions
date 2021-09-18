@@ -1,4 +1,4 @@
-import { GET_QUESTIONS } from './types';
+import { GET_QUESTIONS, UPDATE_ANSWER } from './types';
 import data from 'api/local/questions.json';
 export const setQuestions = () => (dispatch) => {
   const questionsRequest = (select = 'me') => {
@@ -21,4 +21,11 @@ export const setQuestions = () => (dispatch) => {
     .catch((err) => {
       console.log(err);
     });
+};
+
+export const getUsersAnswer = (answer) => (dispatch) => {
+  dispatch({
+    type: UPDATE_ANSWER,
+    payload: answer,
+  });
 };

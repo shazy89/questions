@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const incorrect-answer = () => {
+export const IncorrectAnswer = () => {
     return (
         <div>
             

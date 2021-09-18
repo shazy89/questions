@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const correct-answer = () => {
+export const CorrectAnswer = () => {
     return (
         <div>
             
