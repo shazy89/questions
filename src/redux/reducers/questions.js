@@ -1,7 +1,7 @@
-import { GET_EVENTS, EDIT_EVENTS, CLEAR_DATA } from 'actions/types';
+import { GET_QUESTIONS } from '../actions/types';
 
 const initialState = {
-  events: [],
+  events: ['erdo', 'semra'],
   loading: true,
 };
 function questions(state = initialState, action) {
