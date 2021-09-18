@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Option } from '../components/answer-options';
+import { Option } from '../components/answers/answer-options';
 export const QuestionsDashboard = ({
   questionInfo: { options, question, answer },
 }) => {
-  const [userAnswer, setUserAnswer] = useState('');
+  const [userAnswer, setUserAnswer] = useState(null);
   const displayOptions =
     options &&
     options.map((option, index) => (
@@ -13,14 +13,17 @@ export const QuestionsDashboard = ({
         index={index + 1}
         setUserAnswer={setUserAnswer}
         correctAnswer={answer}
+        userAnswer={userAnswer}
       />
     ));
-  console.log(userAnswer);
+
   return (
     <div className="app_container">
       <h1 className="app_question">{question}</h1>
 
-      <div className="app_options">{displayOptions}</div>
+      <div className={`app_options ${userAnswer && 'disabled'}`}>
+        {displayOptions}
+      </div>
     </div>
   );
 };

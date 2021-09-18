@@ -1,7 +1,13 @@
-import React, { useState, useRef } from 'react';
-import { answerTypes } from '../utils/questionsStyle';
+import React, { useState, useRef, useEffect } from 'react';
+import { answerTypes } from '../../utils/questionsStyle';
 
-export const Option = ({ option, index, setUserAnswer, correctAnswer }) => {
+export const Option = ({
+  option,
+  index,
+  setUserAnswer,
+  correctAnswer,
+  userAnswer,
+}) => {
   const [show, setShow] = useState(false);
   const inputEl = useRef(null);
 
@@ -10,7 +16,7 @@ export const Option = ({ option, index, setUserAnswer, correctAnswer }) => {
     if (inputEl.current.innerText === correctAnswer) {
       inputEl.current.className = `app_option ${show ? 'show' : ''} ${
         answerTypes.correct
-      }`;
+      } `;
     } else {
       inputEl.current.className = `app_option ${show ? 'show' : ''} ${
         answerTypes.incorrect
