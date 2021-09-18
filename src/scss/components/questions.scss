@@ -2,9 +2,13 @@
    &_correct {
        background-color: rgb(17, 204, 17);
        color: white;
+       border-radius: 20px;
+       text-align: center;
    } 
    &_incorrect {
     background-color: rgb(204, 70, 17);
     color: white;
+    border-radius: 20px;
+    text-align: center;
    } 
 }

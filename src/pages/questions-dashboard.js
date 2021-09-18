@@ -12,9 +12,10 @@ export const QuestionsDashboard = ({
         option={option}
         index={index + 1}
         setUserAnswer={setUserAnswer}
+        correctAnswer={answer}
       />
     ));
-  console.log();
+  console.log(userAnswer);
   return (
     <div className="app_container">
       <h1 className="app_question">{question}</h1>
