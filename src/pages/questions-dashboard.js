@@ -4,7 +4,8 @@ import { Option } from '../components/answers/answer-options';
 import { getUsersAnswer } from 'redux/actions/questions-fetch';
 import { checkAnswer } from 'helpers/helper-functions';
 import { AnswerType } from 'components/answers/answer-type';
-import { Timer } from '@material-ui/icons';
+import { Button } from '@material-ui/core';
+import { space } from 'infrastructure/questionsStyle';
 //const mapStateProps = (state) => {
 //  return {
 //    loading: state.questions.loading,
@@ -52,6 +53,9 @@ export const QuestionsDashboard = connect(null, { getUsersAnswer })(
             </div>
           </>
         )}
+        <Button className={space.top_ls} variant="text">
+          OK
+        </Button>
       </div>
     );
   }

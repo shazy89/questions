@@ -12,11 +12,11 @@ export const AnswerType = connect(mapStateToProp)(({ info, link, correct }) => {
   return (
     <div className="after_answer">
       {correct ? (
-        <h1 className="after_headers after_correct">Great job, that's correct!</h1>
+        <h1 className="after_headers after_correct">You answered correctly!</h1>
       ) : (
-        <h1 className="after_headers after_incorrect">Incorrect</h1>
+        <h1 className="after_headers after_incorrect">You answered incorrectly!</h1>
       )}
-      <p  className="after_text">{info} <br /> <a href={link}>Learn More</a></p>
+      <p  className="after_text">{info} <br /> <a target="_blank" rel="noopener noreferrer" href={link} >Learn More</a></p>
 
     </div>
   );

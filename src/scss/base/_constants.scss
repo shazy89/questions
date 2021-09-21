@@ -1,0 +1,13 @@
+.space {
+  &_top {
+    &_small {
+      margin-top: 1rem !important;
+    }
+    &_medium {
+      margin-top: 2.5rem !important;
+    }
+    &_large {
+      margin-top: 4rem !important;
+    }
+  }
+}
