@@ -26,12 +26,12 @@
     animation: fadeIn 3s ease-in-out;
   }
   &_correct {
-    background-color: $questions-correct;
-    color: $questions-white;
+    background-color: $questions-correct !important;
+    color: $questions-white !important;
   }
   &_incorrect {
-    background-color: $questions-incorrect;
-    color: $questions-white;
+    background-color: $questions-incorrect !important;
+    color: $questions-white !important;
   }
   &_headers {
     font-size: 3rem;

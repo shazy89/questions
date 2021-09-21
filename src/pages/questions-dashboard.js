@@ -36,10 +36,10 @@ export const QuestionsDashboard = connect(null, { getUsersAnswer })(
         getUsersAnswer(checkAnswer(userAnswer, answer));
         setTimeout(() => {
           setShow(true);
-        }, 1400);
+        }, 1200);
       }
     }, [answer, getUsersAnswer, userAnswer]);
-    console.log(show);
+    console.log(correct);
     return (
       <div className="app_container">
         {show ? (
@@ -53,9 +53,17 @@ export const QuestionsDashboard = connect(null, { getUsersAnswer })(
             </div>
           </>
         )}
-        <Button className={space.top_ls} variant="text">
-          OK
-        </Button>
+        {show && (
+          <Button
+            className={`${space.top_ls} ${
+              correct ? `after_correct` : 'after_incorrect'
+            }`}
+            size="large"
+            variant="contained"
+          >
+            Continue
+          </Button>
+        )}
       </div>
     );
   }
