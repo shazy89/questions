@@ -33,7 +33,7 @@
     flex-wrap: wrap;
     cursor: pointer;
     text-align: start;
-    transition: all .2s;
+    transition: all 0.2s;
     span {
       font-size: 3rem;
       display: inline-block;
@@ -48,12 +48,14 @@
         transform: translate(2px, 2px);
       }
     }
-    span:nth-child(3),span:nth-child(4)  {
+    span:nth-child(3),
+    span:nth-child(4) {
       margin-top: 1rem;
     }
-    span:nth-child(1),span:nth-child(3)  {
-        margin-right: 4px;
-      }
+    span:nth-child(1),
+    span:nth-child(3) {
+      margin-right: 4px;
+    }
   }
 }
 
@@ -64,5 +66,5 @@
 }
 
 .show {
-    opacity: 1 !important;
+  opacity: 1 !important;
 }
