@@ -21,7 +21,7 @@ export const QuestionsDashboard = connect(null, { getUsersAnswer })(
   }) => {
     const [userAnswer, setUserAnswer] = useState(null);
     const [show, setShow] = useState(false);
-    const displayOptions = options.map((option, index) => (
+    const displayOptions = options?.map((option, index) => (
       <Option
         key={index}
         option={option}
@@ -39,7 +39,7 @@ export const QuestionsDashboard = connect(null, { getUsersAnswer })(
         }, 1200);
       }
     }, [answer, getUsersAnswer, userAnswer]);
-    console.log(correct);
+
     return (
       <div className="app_container">
         {show ? (

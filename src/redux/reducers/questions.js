@@ -11,7 +11,7 @@ function questions(state = initialState, action) {
     case GET_QUESTIONS:
       return {
         ...state,
-        questions: [payload.questionUno],
+        questions: payload,
         loading: false,
       };
     case UPDATE_ANSWER:

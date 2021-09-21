@@ -8,19 +8,25 @@ import { Loading } from 'layout/loading';
 function App({ setQuestions, loading, questions }) {
   const [questionInfo, setQuestionInfo] = useState(null);
 
+  const displayQuestion = useCallback(() => {
+    setQuestionInfo(
+      questions.filter((question) => question.status === 'start')
+    );
+  }, [questions]);
+
   useEffect(() => {
     setQuestions();
   }, [setQuestions]);
   useEffect(() => {
-    setQuestionInfo(questions[0]);
-  }, [questions]);
-
+    displayQuestion();
+  }, [displayQuestion, questions]);
+  console.log(questionInfo);
   return (
     <>
       {loading ? (
         <Loading />
       ) : (
-        questionInfo && <QuestionsDashboard questionInfo={questionInfo} />
+        questionInfo && <QuestionsDashboard questionInfo={questionInfo[0]} />
       )}
     </>
   );
