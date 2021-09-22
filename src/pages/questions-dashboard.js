@@ -2,16 +2,16 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { Option } from '../components/answers/answer-options';
 import { getUsersAnswer } from 'redux/actions/questions-fetch';
-import { checkAnswer } from 'helpers/helper-functions';
 import { AnswerType } from 'components/answers/answer-type';
 import { Button } from '@material-ui/core';
 import { space } from 'infrastructure/questionsStyle';
+
 const mapStateProps = (state) => {
   return {
     questions: state.questions.questions,
   };
 };
-//: { options, question, answer, correct, info, link }
+
 export const QuestionsDashboard = connect(mapStateProps, { getUsersAnswer })(
   ({ questions, getUsersAnswer }) => {
     const [questionInfo, setQuestionInfo] = useState(null);
@@ -47,6 +47,10 @@ export const QuestionsDashboard = connect(mapStateProps, { getUsersAnswer })(
       }
     }, [questionInfo?.isCorrect, getUsersAnswer]);
 
+    const nextQuestion = () => {
+      setShow(false);
+    };
+
     return (
       <div className="app_container">
         {show && questionInfo ? (
@@ -71,6 +75,7 @@ export const QuestionsDashboard = connect(mapStateProps, { getUsersAnswer })(
             }`}
             size="large"
             variant="contained"
+            onClick={nextQuestion}
           >
             Next
           </Button>

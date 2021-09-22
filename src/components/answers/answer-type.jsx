@@ -1,10 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Button } from '@material-ui/core';
-
 
 export const AnswerType = ({ questionInfo: {info, link, isCorrect} }) => {
-// we dont know if this is correct yet -FIX THE REDUCER!!!!
+
   return (
     <div className="after_answer">
       {isCorrect ? (
