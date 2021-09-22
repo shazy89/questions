@@ -30,7 +30,7 @@ export const getUsersAnswer = (answer) => (dispatch) => {
   });
 };
 
-export const newxtQuestion = (data) => (dispatch) => {
+export const updatTheNextQuestion = (data) => (dispatch) => {
   dispatch({
     type: NEXT_QUESTION,
     payload: data,

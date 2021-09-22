@@ -1,4 +1,4 @@
-import { GET_QUESTIONS, UPDATE_ANSWER } from '../actions/types';
+import { GET_QUESTIONS, UPDATE_ANSWER, NEXT_QUESTION } from '../actions/types';
 
 const initialState = {
   questions: [],
@@ -22,8 +22,18 @@ function questions(state = initialState, action) {
         ),
         loading: false,
       };
-    //   case CLEAR_DATA:
-    //     return { ...state, events: [], loading: true };
+    case NEXT_QUESTION:
+      const updateCurrentQuestion = state.questions.map((obj) => {
+        if (obj.id === payload.id) {
+          return payload;
+        } else if (obj.id === payload.id + 1) {
+          return { ...obj, status: 'start' };
+        } else {
+          return obj;
+        }
+      });
+
+      return { ...state, questions: updateCurrentQuestion, loading: false };
 
     default:
       return state;
