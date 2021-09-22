@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { Option } from '../components/answers/answer-options';
 import { getUsersAnswer } from 'redux/actions/questions-fetch';
@@ -37,18 +37,16 @@ export const QuestionsDashboard = connect(mapStateProps, { getUsersAnswer })(
         correctAnswer={questionInfo.correctAnswer}
       />
     ));
+
     useEffect(() => {
       if (questionInfo && questionInfo.isCorrect !== null) {
         getUsersAnswer(questionInfo);
         setTimeout(() => {
           setShow(true);
-        }, 1000);
+        }, 800);
       }
     }, [questionInfo?.isCorrect, getUsersAnswer]);
 
-    // find the reason why when we select corrct or incorrect option
-    // it is changeing the screen imidiatly
-    console.log(questionInfo);
     return (
       <div className="app_container">
         {show && questionInfo ? (
@@ -69,12 +67,12 @@ export const QuestionsDashboard = connect(mapStateProps, { getUsersAnswer })(
         {show && (
           <Button
             className={`${space.top_ls} ${
-              questionInfo?.correct ? `after_correct` : 'after_incorrect'
+              questionInfo?.isCorrect ? `after_correct` : 'after_incorrect'
             }`}
             size="large"
             variant="contained"
           >
-            Continue
+            Next
           </Button>
         )}
       </div>

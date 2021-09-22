@@ -5,7 +5,6 @@ import { Button } from '@material-ui/core';
 
 export const AnswerType = ({ questionInfo: {info, link, isCorrect} }) => {
 // we dont know if this is correct yet -FIX THE REDUCER!!!!
-console.log(isCorrect)
   return (
     <div className="after_answer">
       {isCorrect ? (
