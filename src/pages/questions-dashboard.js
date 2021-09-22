@@ -15,7 +15,6 @@ const mapStateProps = (state) => {
 export const QuestionsDashboard = connect(mapStateProps, { getUsersAnswer })(
   ({ questions, getUsersAnswer }) => {
     const [questionInfo, setQuestionInfo] = useState(null);
-    const [userAnswer, setUserAnswer] = useState(null);
     const [show, setShow] = useState(false);
 
     const displayQuestion = useCallback(() => {
@@ -33,21 +32,19 @@ export const QuestionsDashboard = connect(mapStateProps, { getUsersAnswer })(
         key={index}
         option={option}
         index={index + 1}
-        setUserAnswer={setUserAnswer}
         setQuestionInfo={setQuestionInfo}
         questionInfo={questionInfo}
         correctAnswer={questionInfo.correctAnswer}
-        userAnswer={userAnswer}
       />
     ));
     useEffect(() => {
-      if (userAnswer) {
-        getUsersAnswer(checkAnswer(userAnswer, questionInfo?.answer));
+      if (questionInfo && questionInfo.isCorrect !== null) {
+        getUsersAnswer(questionInfo);
         setTimeout(() => {
           setShow(true);
         }, 1000);
       }
-    }, [questionInfo?.answer, getUsersAnswer, userAnswer]);
+    }, [questionInfo?.isCorrect, getUsersAnswer]);
 
     // find the reason why when we select corrct or incorrect option
     // it is changeing the screen imidiatly
@@ -63,7 +60,9 @@ export const QuestionsDashboard = connect(mapStateProps, { getUsersAnswer })(
         ) : (
           <>
             <h1 className="app_question">{questionInfo?.question}</h1>
-            <div className={`app_options ${userAnswer && 'disabled'}`}>
+            <div
+              className={`app_options ${questionInfo?.isCorrect && 'disabled'}`}
+            >
               {displayOptions}
             </div>
           </>

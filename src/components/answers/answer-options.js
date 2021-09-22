@@ -3,7 +3,7 @@ import { answerTypes } from '../../infrastructure/questionsStyle';
 import { checkAnswer } from 'helpers/helper-functions';
 export const Option = ({
   option,
-  setUserAnswer,
+
   correctAnswer,
   setQuestionInfo,
   questionInfo,
@@ -13,7 +13,6 @@ export const Option = ({
 
   const onButtonClick = () => {
     const select = inputEl.current;
-    // setUserAnswer(select.innerText);
     setQuestionInfo({
       ...questionInfo,
       isCorrect: checkAnswer(select.innerText, correctAnswer),
