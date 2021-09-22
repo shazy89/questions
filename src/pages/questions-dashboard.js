@@ -9,6 +9,7 @@ import { AnswerType } from 'components/answers/answer-type';
 import { Button } from '@material-ui/core';
 import { space } from 'infrastructure/questionsStyle';
 import { BoxHeader } from 'components/box-header';
+
 const mapStateProps = (state) => {
   return {
     questions: state.questions.questions,
@@ -21,6 +22,10 @@ export const QuestionsDashboard = connect(mapStateProps, {
 })(({ questions, getUsersAnswer, updatTheNextQuestion }) => {
   const [questionInfo, setQuestionInfo] = useState(null);
   const [show, setShow] = useState(false);
+  const [progress, setProgress] = useState({
+    amountQuestions: 0,
+    questionNumber: 1,
+  });
 
   const displayQuestion = useCallback(() => {
     setQuestionInfo(questions.find((question) => question.status === 'start'));
@@ -28,6 +33,7 @@ export const QuestionsDashboard = connect(mapStateProps, {
 
   useEffect(() => {
     displayQuestion();
+    setProgress({ ...progress, amountQuestions: questions.length });
   }, [displayQuestion, questionInfo?.status]);
 
   const displayOptions = questionInfo?.options.map((option, index) => (
@@ -52,12 +58,13 @@ export const QuestionsDashboard = connect(mapStateProps, {
 
   const nextQuestion = () => {
     updatTheNextQuestion({ ...questionInfo, status: 'finished' });
+    setProgress({ ...progress, questionNumber: progress.questionNumber + 1 });
     setShow(false);
   };
 
   return (
     <div className="app_container">
-      <BoxHeader />
+      <BoxHeader progress={progress} />
       <div className="question_box">
         {show && questionInfo ? (
           <AnswerType

@@ -1,15 +1,21 @@
 import React from 'react'
 
-export const BoxHeader = () => {
+
+export const BoxHeader = ({progress: {amountQuestions, questionNumber}}) => {
+
+//const correctQuestions = (correct,numberQuestions ) => {
+//
+//    return (correct / numberQuestions) * 100
+//}
     return (
         <div className="box-header">
-            <div classNam="box-header-progress">
+            <div className="box-header-progress">
                 Progress:
-                <h4 className="box-header-progress_color">10/11</h4>
+                <h4 className="box-header-progress_color">{`${questionNumber}/${amountQuestions}`}</h4>
             </div>
-            <div classNam="box-header-procent">
+            <div className="box-header-procent">
                 Percent Correct:
-                <h4 className="box-header-procent_color">0%</h4>
+                <h4 className="box-header-procent_color">10%</h4>
             </div>
         </div>
     )
