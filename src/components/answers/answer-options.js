@@ -1,27 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { answerTypes } from '../../infrastructure/questionsStyle';
-
-export const Option = ({
-  option,
-  index,
-  setUserAnswer,
-  correctAnswer,
-  userAnswer,
-}) => {
+import { checkAnswer } from 'helpers/helper-functions';
+export const Option = ({ option, setUserAnswer, correctAnswer }) => {
   const [show, setShow] = useState(false);
   const inputEl = useRef(null);
 
   const onButtonClick = () => {
-    setUserAnswer(inputEl.current.innerText);
-    if (inputEl.current.innerText === correctAnswer) {
-      inputEl.current.className = `app_option ${show ? 'show' : ''} ${
-        answerTypes.correct
-      } `;
-    } else {
-      inputEl.current.className = `app_option ${show ? 'show' : ''} ${
-        answerTypes.incorrect
-      }`;
-    }
+    const select = inputEl.current;
+    setUserAnswer(select.innerText);
+    checkAnswer(select.innerText, correctAnswer)
+      ? (select.className = `app_option ${show ? 'show' : ''} ${
+          answerTypes.correct
+        } `)
+      : (select.className = `app_option ${show ? 'show' : ''} ${
+          answerTypes.incorrect
+        }`);
   };
 
   return (
