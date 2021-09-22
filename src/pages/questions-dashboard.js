@@ -51,11 +51,10 @@ export const QuestionsDashboard = connect(mapStateProps, { getUsersAnswer })(
     console.log(questionInfo);
     return (
       <div className="app_container">
-        {show ? (
+        {show && questionInfo ? (
           <AnswerType
-            info={questionInfo?.info}
+            questionInfo={questionInfo && questionInfo}
             target="_blank"
-            link={questionInfo?.link}
           />
         ) : (
           <>

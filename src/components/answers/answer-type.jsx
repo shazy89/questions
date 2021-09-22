@@ -2,16 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 
-const mapStateToProp = (state) => {
-  return {
-    correct: state.questions.questions[0].correct,
-  };
-};
-export const AnswerType = connect(mapStateToProp)(({ info, link, correct }) => {
+
+export const AnswerType = ({ questionInfo: {info, link, isCorrect} }) => {
 // we dont know if this is correct yet -FIX THE REDUCER!!!!
+console.log(isCorrect)
   return (
     <div className="after_answer">
-      {correct ? (
+      {isCorrect ? (
         <h1 className="after_headers after_correct">You answered correctly!</h1>
       ) : (
         <h1 className="after_headers after_incorrect">You answered incorrectly!</h1>
@@ -20,4 +17,4 @@ export const AnswerType = connect(mapStateToProp)(({ info, link, correct }) => {
 
     </div>
   );
-});
+};

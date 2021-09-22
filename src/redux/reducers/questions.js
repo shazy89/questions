@@ -20,6 +20,7 @@ function questions(state = initialState, action) {
         questions: state.questions.map((obj) =>
           obj.id === payload.id ? payload : obj
         ),
+        loading: false,
       };
     //   case CLEAR_DATA:
     //     return { ...state, events: [], loading: true };
