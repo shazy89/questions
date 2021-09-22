@@ -51,7 +51,7 @@ export const QuestionsDashboard = connect(mapStateProps, { getUsersAnswer })(
 
     // find the reason why when we select corrct or incorrect option
     // it is changeing the screen imidiatly
-
+    console.log(questionInfo);
     return (
       <div className="app_container">
         {show ? (

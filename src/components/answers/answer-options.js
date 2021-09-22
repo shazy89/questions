@@ -6,13 +6,18 @@ export const Option = ({
   setUserAnswer,
   correctAnswer,
   setQuestionInfo,
+  questionInfo,
 }) => {
   const [show, setShow] = useState(false);
   const inputEl = useRef(null);
 
   const onButtonClick = () => {
     const select = inputEl.current;
-    setUserAnswer(select.innerText);
+    // setUserAnswer(select.innerText);
+    setQuestionInfo({
+      ...questionInfo,
+      isCorrect: checkAnswer(select.innerText, correctAnswer),
+    });
     checkAnswer(select.innerText, correctAnswer)
       ? (select.className = `app_option ${show ? 'show' : ''} ${
           answerTypes.correct
