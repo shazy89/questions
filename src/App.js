@@ -10,7 +10,7 @@ function App({ setQuestions, loading }) {
     setQuestions();
   }, [setQuestions]);
 
-  return <>{loading ? <Loading /> : <QuestionsDashboard />}</>;
+  return loading ? <Loading /> : <QuestionsDashboard />;
 }
 
 const mapStateProps = (state) => {
