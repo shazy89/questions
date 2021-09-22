@@ -8,7 +8,7 @@ import {
 import { AnswerType } from 'components/answers/answer-type';
 import { Button } from '@material-ui/core';
 import { space } from 'infrastructure/questionsStyle';
-
+import { BoxHeader } from 'components/box-header';
 const mapStateProps = (state) => {
   return {
     questions: state.questions.questions,
@@ -51,19 +51,13 @@ export const QuestionsDashboard = connect(mapStateProps, {
   }, [questionInfo?.isCorrect, getUsersAnswer]);
 
   const nextQuestion = () => {
-    // show - false
-    // update the redux -> requesting the next
-    //  updatTheNextQuestion({ erdo: 'hey' });
-    //  setQuestionInfo();
     updatTheNextQuestion({ ...questionInfo, status: 'finished' });
     setShow(false);
   };
 
   return (
     <div className="app_container">
-      <div>
-        <h2>Header</h2>
-      </div>
+      <BoxHeader />
       <div className="question_box">
         {show && questionInfo ? (
           <AnswerType
