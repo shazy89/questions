@@ -25,6 +25,7 @@ export const QuestionsDashboard = connect(mapStateProps, {
   const [progress, setProgress] = useState({
     amountQuestions: 0,
     questionNumber: 1,
+    correct: 0,
   });
 
   const displayQuestion = useCallback(() => {
@@ -44,6 +45,7 @@ export const QuestionsDashboard = connect(mapStateProps, {
       setQuestionInfo={setQuestionInfo}
       questionInfo={questionInfo}
       correctAnswer={questionInfo.correctAnswer}
+      setProgress={setProgress}
     />
   ));
 

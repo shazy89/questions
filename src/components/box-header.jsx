@@ -1,7 +1,7 @@
 import React from 'react'
+import { percentage } from 'helpers/helper-functions'
 
-
-export const BoxHeader = ({progress: {amountQuestions, questionNumber}}) => {
+export const BoxHeader = ({progress: {amountQuestions, questionNumber, correct}}) => {
 
 //const correctQuestions = (correct,numberQuestions ) => {
 //
@@ -15,7 +15,7 @@ export const BoxHeader = ({progress: {amountQuestions, questionNumber}}) => {
             </div>
             <div className="box-header-procent">
                 Percent Correct:
-                <h4 className="box-header-procent_color">10%</h4>
+                <h4 className="box-header-procent_color">{`${percentage(correct, questionNumber)}%`}</h4>
             </div>
         </div>
     )
