@@ -1,0 +1,17 @@
+.box-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: .5rem;
+    text-align: center;
+    &-progress {
+      &_color {
+          color: $answers-grey;
+      }
+    }
+    &-procent {
+        &_color {
+            color: $answers-grey;
+        }
+    }
+}
