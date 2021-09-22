@@ -5,37 +5,27 @@ import { QuestionsDashboard } from './pages/questions-dashboard';
 import { setQuestions } from 'redux/actions/questions-fetch';
 import { Loading } from 'layout/loading';
 
-function App({ setQuestions, loading, questions }) {
-  const [questionInfo, setQuestionInfo] = useState(null);
+function App({ setQuestions, loading }) {
+  //  const [questionInfo, setQuestionInfo] = useState(null);
 
-  const displayQuestion = useCallback(() => {
-    setQuestionInfo(
-      questions.filter((question) => question.status === 'start')
-    );
-  }, [questions]);
+  //  const displayQuestion = useCallback(() => {
+  //    setQuestionInfo(questions.find((question) => question.status === 'start'));
+  //  }, [questions]);
 
   useEffect(() => {
     setQuestions();
   }, [setQuestions]);
-  useEffect(() => {
-    displayQuestion();
-  }, [displayQuestion, questions]);
-  console.log(questionInfo);
-  return (
-    <>
-      {loading ? (
-        <Loading />
-      ) : (
-        questionInfo && <QuestionsDashboard questionInfo={questionInfo[0]} />
-      )}
-    </>
-  );
+  // useEffect(() => {
+  //   displayQuestion();
+  // }, [displayQuestion, questions]);
+
+  return <>{loading ? <Loading /> : <QuestionsDashboard />}</>;
 }
 
 const mapStateProps = (state) => {
   return {
     loading: state.questions.loading,
-    questions: state.questions.questions,
+    // questions: state.questions.questions,
   };
 };
 export default connect(mapStateProps, { setQuestions })(App);
