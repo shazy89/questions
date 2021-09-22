@@ -37,19 +37,19 @@
     },
     {
         "id": 3,
-        "title": "Question 1",
-        "question": "What country is split into 443 named islands and also holds the territory of Greenland?",
+        "title": "Question 3",
+        "question": "What is the capital of the American state of Arizona?",
         "type": "countries",
         "options": [
-            "Denmark",
+            "Phoenix",
             "Sweden",
-            "USA",
-            "Canada"
+            "Raleigh",
+            "Tallahassee"
         ],
         "status": "pending",
-        "correctAnswer": "Denmark",
-        "info": "European Denmark, which is the southernmost of the Scandinavian countries, consists of a peninsula, Jutland, and an archipelago of 443 named islands, with the largest being Zealand, Funen and the North Jutlandic Island.",
-        "link": "https://en.wikipedia.org/wiki/Denmark#:~:text=European%20Denmark%2C%20which%20is%20the,and%20the%20North%20Jutlandic%20Island.",
+        "correctAnswer": "Phoenix",
+        "info": "Phoenix, city, seat (1871) of Maricopa county and capital of Arizona, U.S. It lies along the Salt River in the south-central part of the state, about 120 miles (190 km) north of the Mexico border and midway between El Paso, Texas, and Los Angeles, California",
+        "link": "https://www.britannica.com/place/Phoenix-Arizona",
         "getUsersAnswer": null,
         "isCorrect": null
     },

@@ -3,7 +3,6 @@ import { answerTypes } from '../../infrastructure/questionsStyle';
 import { checkAnswer } from 'helpers/helper-functions';
 export const Option = ({
   option,
-
   correctAnswer,
   setQuestionInfo,
   questionInfo,

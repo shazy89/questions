@@ -60,10 +60,19 @@ export const QuestionsDashboard = connect(mapStateProps, {
 
   const nextQuestion = () => {
     updatTheNextQuestion({ ...questionInfo, status: 'finished' });
-    setProgress({ ...progress, questionNumber: progress.questionNumber + 1 });
+    questionInfo.isCorrect
+      ? setProgress({
+          ...progress,
+          questionNumber: progress.questionNumber + 1,
+          correct: progress.correct + 1,
+        })
+      : setProgress({
+          ...progress,
+          questionNumber: progress.questionNumber + 1,
+        });
     setShow(false);
   };
-
+  /* Fix the percentage and count of questions if thre are not questions stop qounting */
   return (
     <div className="app_container">
       <BoxHeader progress={progress} />
@@ -94,7 +103,7 @@ export const QuestionsDashboard = connect(mapStateProps, {
             variant="contained"
             onClick={nextQuestion}
           >
-            Next
+            Next Question
           </Button>
         )}
       </div>

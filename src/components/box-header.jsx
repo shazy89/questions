@@ -3,10 +3,7 @@ import { percentage } from 'helpers/helper-functions'
 
 export const BoxHeader = ({progress: {amountQuestions, questionNumber, correct}}) => {
 
-//const correctQuestions = (correct,numberQuestions ) => {
-//
-//    return (correct / numberQuestions) * 100
-//}
+
     return (
         <div className="box-header">
             <div className="box-header-progress">
@@ -15,7 +12,7 @@ export const BoxHeader = ({progress: {amountQuestions, questionNumber, correct}}
             </div>
             <div className="box-header-procent">
                 Percent Correct:
-                <h4 className="box-header-procent_color">{`${percentage(correct, questionNumber)}%`}</h4>
+                <h4 className="box-header-procent_color">{`${percentage(correct, questionNumber - 1)}%`}</h4>
             </div>
         </div>
     )
