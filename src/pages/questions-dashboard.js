@@ -34,7 +34,9 @@ export const QuestionsDashboard = connect(mapStateProps, { getUsersAnswer })(
         option={option}
         index={index + 1}
         setUserAnswer={setUserAnswer}
-        correctAnswer={questionInfo.answer}
+        setQuestionInfo={setQuestionInfo}
+        questionInfo={questionInfo}
+        correctAnswer={questionInfo.correctAnswer}
         userAnswer={userAnswer}
       />
     ));
@@ -43,11 +45,13 @@ export const QuestionsDashboard = connect(mapStateProps, { getUsersAnswer })(
         getUsersAnswer(checkAnswer(userAnswer, questionInfo?.answer));
         setTimeout(() => {
           setShow(true);
-        }, 1500);
+        }, 1000);
       }
     }, [questionInfo?.answer, getUsersAnswer, userAnswer]);
+
     // find the reason why when we select corrct or incorrect option
     // it is changeing the screen imidiatly
+
     return (
       <div className="app_container">
         {show ? (

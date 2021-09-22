@@ -8,7 +8,7 @@ const mapStateToProp = (state) => {
   };
 };
 export const AnswerType = connect(mapStateToProp)(({ info, link, correct }) => {
-
+// we dont know if this is correct yet -FIX THE REDUCER!!!!
   return (
     <div className="after_answer">
       {correct ? (

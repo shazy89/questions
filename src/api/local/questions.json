@@ -11,14 +11,14 @@
             "Canada"
         ],
         "status": "finished",
-        "answer": "Denmark",
+        "correctAnswer": "Denmark",
         "info": "European Denmark, which is the southernmost of the Scandinavian countries, consists of a peninsula, Jutland, and an archipelago of 443 named islands, with the largest being Zealand, Funen and the North Jutlandic Island.",
         "link": "https://en.wikipedia.org/wiki/Denmark#:~:text=European%20Denmark%2C%20which%20is%20the,and%20the%20North%20Jutlandic%20Island.",
         "getUsersAnswer": null,
-        "correct": null
+        "isCorrect": null
     },
     {
-        "id": 1,
+        "id": 2,
         "title": "Question 2",
         "question": "Jamaica is closest to which state in the U.S.?",
         "type": "countries",
@@ -29,10 +29,10 @@
             "Florida"
         ],
         "status": "start",
-        "answer": "Florida",
+        "correctAnswer": "Florida",
         "info": "The air travel (bird fly) shortest distance between Jamaica and United States is 2,769 km= 1,721 miles. If you travel with an airplane (which has average speed of 560 miles) from Jamaica to United States, It takes 3.07 hours to arrive.",
         "link": "https://en.wikipedia.org/wiki/Jamaica",
         "getUsersAnswer": null,
-        "correct": null
+        "isCorrect": null
     }
 ]

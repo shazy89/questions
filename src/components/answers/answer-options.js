@@ -1,7 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { answerTypes } from '../../infrastructure/questionsStyle';
 import { checkAnswer } from 'helpers/helper-functions';
-export const Option = ({ option, setUserAnswer, correctAnswer }) => {
+export const Option = ({
+  option,
+  setUserAnswer,
+  correctAnswer,
+  setQuestionInfo,
+}) => {
   const [show, setShow] = useState(false);
   const inputEl = useRef(null);
 
