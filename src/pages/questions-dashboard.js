@@ -48,6 +48,9 @@ export const QuestionsDashboard = connect(mapStateProps, { getUsersAnswer })(
     }, [questionInfo?.isCorrect, getUsersAnswer]);
 
     const nextQuestion = () => {
+      // show - false
+      // update the redux -> requesting the next
+
       setShow(false);
     };
 
