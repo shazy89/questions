@@ -19,7 +19,7 @@ const mapStateProps = (state) => {
 export const QuestionsDashboard = connect(mapStateProps, {
   getUsersAnswer,
   updatTheNextQuestion,
-})(({ questions, getUsersAnswer, updatTheNextQuestion }) => {
+})(({ questions, getUsersAnswer, updatTheNextQuestion, setResetQuestions }) => {
   const [questionInfo, setQuestionInfo] = useState(null);
   const [show, setShow] = useState(false);
   const [progress, setProgress] = useState({
@@ -72,7 +72,19 @@ export const QuestionsDashboard = connect(mapStateProps, {
         });
     setShow(false);
   };
-  /* Fix the percentage and count of questions if thre are not questions stop qounting */
+  const restartQuiz = () => {
+    // will reset the progres
+    setProgress({
+      ...progress,
+      correct: 0,
+      amountQuestions: 0,
+      questionNumber: 1,
+    });
+    updatTheNextQuestion({ ...questionInfo, status: 'finished' });
+    setResetQuestions(true);
+    setShow(false);
+  };
+
   return (
     <div className="app_container">
       <BoxHeader progress={progress} />
@@ -94,18 +106,30 @@ export const QuestionsDashboard = connect(mapStateProps, {
             </div>
           </>
         )}
-        {show && (
-          <Button
-            className={`${space.top_ls} ${
-              questionInfo?.isCorrect ? `after_correct` : 'after_incorrect'
-            }`}
-            size="large"
-            variant="contained"
-            onClick={nextQuestion}
-          >
-            Next Question
-          </Button>
-        )}
+        {show &&
+          (progress.amountQuestions !== progress.questionNumber ? (
+            <Button
+              className={`${space.top_ls} ${
+                questionInfo?.isCorrect ? `after_correct` : 'after_incorrect'
+              }`}
+              size="large"
+              variant="contained"
+              onClick={nextQuestion}
+            >
+              Next Question
+            </Button>
+          ) : (
+            <Button
+              className={`${space.top_ls} ${
+                questionInfo?.isCorrect ? `after_correct` : 'after_incorrect'
+              }`}
+              onClick={restartQuiz}
+              size="large"
+              variant="contained"
+            >
+              Restart
+            </Button>
+          ))}
       </div>
     </div>
   );
