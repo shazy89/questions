@@ -12,7 +12,7 @@ export const BoxHeader = ({progress: {amountQuestions, questionNumber, correct}}
             </div>
             <div className="box-header-procent">
                 Percent Correct:
-                <h4 className="box-header-procent_color">{`${percentage(correct, questionNumber - 1)}%`}</h4>
+                <h4 className="box-header-procent_color">{`${percentage(correct, questionNumber)}%`}</h4>
             </div>
         </div>
     )

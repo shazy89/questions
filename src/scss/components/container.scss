@@ -2,7 +2,7 @@
 
 body {
   box-sizing: border-box;
-  background: linear-gradient(rgba(177, 177, 177, 0.144), rgba(255, 253, 253, 0.397)), url('https://res.cloudinary.com/dytheecsk/image/upload/v1632321778/jess-bailey-l3N9Q27zULw-unsplash_ykoaq1.jpg');
+  background: linear-gradient(rgba(177, 177, 177, 0.144), rgba(255, 253, 253, 0.397)), url('https://res.cloudinary.com/dytheecsk/image/upload/c_scale,w_1956/v1632321778/jess-bailey-l3N9Q27zULw-unsplash_ykoaq1.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -29,7 +29,7 @@ body {
   }
 
   &_question {
-    animation: move 3s ease-in-out;
+    animation: move 1s ease-in;
   }
   &_options {
     color: $answers-grey;
@@ -43,7 +43,7 @@ body {
     span {
       font-size: 3rem;
       display: inline-block;
-      animation: leftToRight 2s ease-in-out;
+      animation: leftToRight 1s ease-in-out;
       width: 49%;
       opacity: 0;
       border: 2px solid;
