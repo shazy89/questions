@@ -1,5 +1,6 @@
 import { GET_QUESTIONS, UPDATE_ANSWER, NEXT_QUESTION } from './types';
 import data from 'api/local/questions.json';
+
 export const setQuestions = () => (dispatch) => {
   const questionsRequest = (select = 'me') => {
     return new Promise((resolve, reject) => {

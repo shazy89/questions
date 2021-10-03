@@ -7,6 +7,7 @@ import { Loading } from 'layout/loading';
 
 function App({ setQuestions, loading }) {
   const [resetQuestions, setResetQuestions] = useState(false);
+
   useEffect(() => {
     setQuestions();
     if (resetQuestions) {

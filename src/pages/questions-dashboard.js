@@ -58,7 +58,7 @@ export const QuestionsDashboard = connect(mapStateProps, {
     }
   }, [questionInfo?.isCorrect, getUsersAnswer]);
 
-  const nextQuestion = () => {
+  const nextQuestion = useCallback(() => {
     updatTheNextQuestion({ ...questionInfo, status: 'finished' });
     questionInfo.isCorrect
       ? setProgress({
@@ -71,9 +71,11 @@ export const QuestionsDashboard = connect(mapStateProps, {
           questionNumber: progress.questionNumber + 1,
         });
     setShow(false);
-  };
-  const restartQuiz = () => {
+  }, [progress, questionInfo, updatTheNextQuestion]);
+
+  const restartQuiz = useCallback(() => {
     // will reset the progres
+
     setProgress({
       ...progress,
       correct: 0,
@@ -83,10 +85,13 @@ export const QuestionsDashboard = connect(mapStateProps, {
     updatTheNextQuestion({ ...questionInfo, status: 'finished' });
     setResetQuestions(true);
     setShow(false);
-  };
+  }, [progress, questionInfo, setResetQuestions, updatTheNextQuestion]);
 
   return (
     <div className="app_container">
+      <Button onClick={restartQuiz} size="large" variant="contained">
+        Restart
+      </Button>
       <BoxHeader progress={progress} />
       <div className="question_box">
         {show && questionInfo ? (
